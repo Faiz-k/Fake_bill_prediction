@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Bill Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(m.jpg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color:  #C0AFE2;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:  #C0AFE2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Placeholder graphics */
+        .logo {
+            text-align: center;
+        }
+
+        .bill-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body background="m.jpg">
+    <header>
+        <h1>Fake Bill Detection</h1>
+    </header>
+    <div class="container">
+        <form method="post" >
+            {% csrf_token %}
+            <label for="diagonal">Diagonal:</label>
+            <input type="number" step="0.01" id="diagonal" name="diagonal" required>
+
+            <label for="height_left">Height Left:</label>
+            <input type="number" step="0.01" id="height_left" name="height_left" required>
+
+            <label for="height_right">Height Right:</label>
+            <input type="number" step="0.01" id="height_right" name="height_right" required>
+
+            <label for="margin_low">Margin Low:</label>
+            <input type="number" step="0.01" id="margin_low" name="margin_low" required>
+
+            <label for="margin_up">Margin Up:</label>
+            <input type="number" step="0.01" id="margin_up" name="margin_up" required>
+
+            <label for="length">Length:</label>
+            <input type="number" step="0.01" id="length" name="length" required>
+
+            <button type="submit">Detect Fake Bill</button><br>
+            <h1> {{info}}</h1>
+        </form>
+        <!-- Placeholder graphics -->
+        
+        <img src="C:\Users\mf879\OneDrive\Desktop\Fake_bill_prediction\Website\Basics\templates\logo.png">This is my logo</img>
+    </div>
+</body>
+</html>
